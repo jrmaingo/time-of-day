@@ -9,10 +9,10 @@ function padZero(minuteNum) {
 // loads the current time and displays it in the popup
 document.addEventListener('DOMContentLoaded', function() {
     var currDate = new Date();
-    var hours = currDate.getHours();
+    var hours = currDate.getHours() % 12;
     var meridian = (hours < 12) ? "am" : "pm";
     hours = (hours === 0) ? 12 : hours;
 
     document.getElementById('time').textContent = "The time is now " +
-        hours % 12 + ":" + padZero(currDate.getMinutes()) + " " + meridian;
+        hours + ":" + padZero(currDate.getMinutes()) + " " + meridian;
 });
