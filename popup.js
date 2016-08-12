@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     var currDate = new Date();
     var hours = currDate.getHours();
     var meridian = (hours < 12) ? "am" : "pm";
+    hours = (hours === 0) ? 12 : hours;
 
     document.getElementById('time').textContent = "The time is now " +
         hours % 12 + ":" + currDate.getMinutes() + " " + meridian;
