@@ -4,5 +4,10 @@
 
 // loads the current time and displays it in the popup
 document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('time').textContent = new Date();
+    var currDate = new Date();
+    var hours = currDate.getHours();
+    var meridian = (hours < 12) ? "am" : "pm";
+
+    document.getElementById('time').textContent = "The time is now " +
+        hours % 12 + ":" + currDate.getMinutes() + " " + meridian;
 });
