@@ -2,6 +2,10 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+function padZero(minuteNum) {
+    return (minuteNum < 10) ? "0" + minuteNum : String(minuteNum);
+}
+
 // loads the current time and displays it in the popup
 document.addEventListener('DOMContentLoaded', function() {
     var currDate = new Date();
@@ -10,5 +14,5 @@ document.addEventListener('DOMContentLoaded', function() {
     hours = (hours === 0) ? 12 : hours;
 
     document.getElementById('time').textContent = "The time is now " +
-        hours % 12 + ":" + currDate.getMinutes() + " " + meridian;
+        hours % 12 + ":" + padZero(currDate.getMinutes()) + " " + meridian;
 });

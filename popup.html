@@ -1,35 +1,44 @@
 <!doctype html>
 <!--
- This page is shown when the extension button is clicked, because the
- "browser_action" field in manifest.json contains the "default_popup" key with
- value "popup.html".
- -->
+This page is shown when the extension button is clicked, because the
+"browser_action" field in manifest.json contains the "default_popup" key with
+value "popup.html".
+-->
 <html>
-  <head>
+<head>
     <title>Time of Day</title>
     <style>
-      body {
+    body {
         font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
         font-size: 100%;
-      }
-      #time {
+    }
+    #time {
         /* avoid an excessively wide status text */
         white-space: pre;
         text-overflow: ellipsis;
         /*overflow: hidden;*/
         max-width: 400px;
-      }
+    }
+    #time-page-div {
+        position: relative;
+        top: 5px;
+    }
+    #time-page-btn {
+        margin: auto;
+        display: block;
+    }
     </style>
 
     <!--
-      - JavaScript and HTML must be in separate files: see our Content Security
-      - Policy documentation[1] for details and explanation.
-      -
-      - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
-     -->
-    <script src="popup.js"></script>
-  </head>
-  <body>
+    - JavaScript and HTML must be in separate files: see our Content Security
+    - Policy documentation[1] for details and explanation.
+    -
+    - [1]: https://developer.chrome.com/extensions/contentSecurityPolicy
+-->
+<script src="popup.js"></script>
+</head>
+<body>
     <div id="time"></div>
-  </body>
+    <div id="time-page-div"><input type="button" id="time-page-btn" value="Go to time page" /></div>
+</body>
 </html>
